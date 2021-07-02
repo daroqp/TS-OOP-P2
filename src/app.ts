@@ -6,3 +6,6 @@ console.log(electro2);
 
 const electro = new HouseAppliance(4500, 9, 'A', 'black');
 console.log(electro);
+
+
+console.log(electro.fullPrice('a', 20));

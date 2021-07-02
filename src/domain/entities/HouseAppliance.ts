@@ -2,6 +2,8 @@ import { colors, colorType } from "./data/Colors";
 import { energyConsuptions, energyType } from "./data/EnergyConsuption";
 import { validEnergy } from "../userCase/validEnergy";
 import { validColor } from "../userCase/validColor";
+import { priceByWeight } from "../userCase/priceByWeight";
+import { priceByEnergy } from "../userCase/priceByEnergy";
 
 export class HouseAppliance {
     
@@ -32,5 +34,11 @@ export class HouseAppliance {
     get getWeight():number {
         return this.weight ? this.weight : 5;
     }
-    
+
+    public fullPrice( energyConsuption: string,weight: number ):number {
+        
+        const priceEnergy:number = priceByEnergy(energyConsuption);
+        const priceWeight:number = priceByWeight(weight);
+        return priceEnergy + priceWeight;
+    }
 }
